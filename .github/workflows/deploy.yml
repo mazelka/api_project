@@ -9,6 +9,9 @@ env:
 
 jobs:
   test:
+    environment:
+      name: testing
+
     env:
       MONGODB_CLUSTER_ADDRESS: test-cluster.1q7cvwu.mongodb.net
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
