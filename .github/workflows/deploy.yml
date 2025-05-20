@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - dev
+      - master
 env:
   MONGODB_DB_NAME: sample_mflix
 
