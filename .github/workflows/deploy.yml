@@ -13,10 +13,18 @@ jobs:
       name: testing
 
     env:
-      MONGODB_CLUSTER_ADDRESS: test-cluster.1q7cvwu.mongodb.net
+      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CLUSTER_ADDRESS: mongodb  # label name
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
+
+    services:
+      mongodb:
+        image: mongo:6.0
+        env:
+          MONGO_INITDB_ROOT_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
 
     runs-on: ubuntu-latest
     container: 
