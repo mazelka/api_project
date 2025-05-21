@@ -14,14 +14,14 @@ jobs:
 
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: 127.0.0.1:27017  # label name
+      MONGODB_CLUSTER_ADDRESS: 127.0.0.1  # label name
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
 
     services:
       mongodb:
-        image: mongo:6.0
+        image: mongo
         env:
           MONGO_INITDB_ROOT_USERNAME: ${{ secrets.MONGODB_USERNAME }}
           MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
